@@ -12,8 +12,8 @@ export function regexScanner(text: string): Finding[] {
       findings.push({
         label: pattern.label,
         severity: pattern.severity,
-        columnNumber: match.index ?? 0,
-        lineNumber: match.index + match[0].length,
+        start: match.index,
+        end: match.index + match[0].length,
         match: match[0],
       });
     }
