@@ -1,6 +1,6 @@
 import creditCardScan from "../scanners/creditCardScanner";
 import gitleaksScan from "../scanners/gitleaksScanner";
-import { type Finding } from "../scanners/types";
+import visualise from "../utils/visualise";
 
 const TestString = `
 A3-ABC123-ABCDEFGHIJK-ABCDE-12345-Z9X8W
@@ -24,14 +24,7 @@ Pure Fail:
 export default function Test(){
     const gls = gitleaksScan(TestString)
     const ccs = creditCardScan(TestString)
-    console.log("API KEYS FOUND: ", gls, Visualise(TestString, gls))
-    console.log("CREDIT CARDS FOUND: ", ccs, Visualise(TestString, ccs))
+    console.log("API KEYS FOUND: ", gls, visualise(TestString, gls))
+    console.log("CREDIT CARDS FOUND: ", ccs, visualise(TestString, ccs))
 }
 
-function Visualise(text: string, Violations:Finding[]){
-    const slices = []
-    for (const violation of Violations){
-        slices.push(text.slice(violation.start, violation.end))
-    }
-    return slices
-}
