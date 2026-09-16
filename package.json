@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "js-toml": "^2.0.1",
+    "re2js": "^2.8.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
